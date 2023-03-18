@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:news_app/core/constants/news_api_constants.dart';
 import 'package:news_app/core/network/source/news_key_interceptor.dart';
 
+@lazySingleton
 class NewsApiClient {
   NewsApiClient({
     required Dio dio,
