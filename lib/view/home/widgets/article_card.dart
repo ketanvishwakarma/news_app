@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/blocs/bookmark_list/bookmark_list_bloc.dart';
 import 'package:news_app/common_widgets/gradient_overlay_widget.dart';
 import 'package:news_app/core/styles/app_sizes.dart';
+import 'package:news_app/core/utils.dart';
 import 'package:news_app/models/article/article.dart';
 import 'package:news_app/view/article_details/article_details_screen.dart';
 import 'package:news_app/view/home/widgets/article_image_widget.dart';
@@ -81,7 +82,9 @@ class ArticleCard extends StatelessWidget {
                         : MainAxisAlignment.center,
                     children: <Widget>[
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          launchWebsite(article.url);
+                        },
                         child: const Text('Visit Web'),
                       ),
                       if (showBookmark)

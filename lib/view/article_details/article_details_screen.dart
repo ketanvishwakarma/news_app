@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/common_widgets/gradient_overlay_widget.dart';
 import 'package:news_app/core/styles/app_sizes.dart';
+import 'package:news_app/core/utils.dart';
 import 'package:news_app/models/article/article.dart';
 import 'package:news_app/view/home/widgets/article_image_widget.dart';
 
@@ -64,7 +65,9 @@ class ArticleDetailsScreen extends StatelessWidget {
                   SizedBox(
                     width: double.maxFinite,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        launchWebsite(article.url);
+                      },
                       child: const Text('Check out more'),
                     ),
                   )
