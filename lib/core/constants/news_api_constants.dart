@@ -9,4 +9,5 @@ class NewsApiConstants {
 
   //endpoints
   static const topHeadlines = '/top-headlines';
+  static const everything = '/everything';
 }

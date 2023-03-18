@@ -1,7 +1,5 @@
 part of 'article_list_bloc.dart';
 
-enum Status { initial, inProgress, success, failure }
-
 class ArticleListState extends Equatable {
   const ArticleListState({
     this.status = Status.initial,

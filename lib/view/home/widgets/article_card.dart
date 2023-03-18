@@ -11,10 +11,12 @@ import 'package:news_app/view/home/widgets/article_image_widget.dart';
 class ArticleCard extends StatelessWidget {
   const ArticleCard({
     required this.article,
+    this.showBookmark = false,
     super.key,
   });
 
   final Article article;
+  final bool showBookmark;
 
   @override
   Widget build(BuildContext context) {
@@ -74,35 +76,39 @@ class ArticleCard extends StatelessWidget {
                   ),
                   const Spacer(),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: showBookmark
+                        ? MainAxisAlignment.spaceBetween
+                        : MainAxisAlignment.center,
                     children: <Widget>[
                       TextButton(
                         onPressed: () {},
                         child: const Text('Visit Web'),
                       ),
-                      TextButton(
-                        onPressed: () {
-                          context
-                              .read<BookmarkListBloc>()
-                              .add(BookmarkToggleRequested(article));
-                        },
-                        child: BlocBuilder<BookmarkListBloc, BookmarkListState>(
-                          builder: (context, state) {
-                            if (state.articles.contains(article)) {
-                              return Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: const [
-                                  Text('Bookmarked'),
-                                  gapWMedium,
-                                  Icon(CupertinoIcons.check_mark),
-                                ],
-                              );
-                            } else {
-                              return const Text('Bookmark');
-                            }
+                      if (showBookmark)
+                        TextButton(
+                          onPressed: () {
+                            context
+                                .read<BookmarkListBloc>()
+                                .add(BookmarkToggleRequested(article));
                           },
+                          child:
+                              BlocBuilder<BookmarkListBloc, BookmarkListState>(
+                            builder: (context, state) {
+                              if (state.articles.contains(article)) {
+                                return Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: const [
+                                    Text('Bookmarked'),
+                                    gapWMedium,
+                                    Icon(CupertinoIcons.check_mark),
+                                  ],
+                                );
+                              } else {
+                                return const Text('Bookmark');
+                              }
+                            },
+                          ),
                         ),
-                      ),
                     ],
                   ),
                 ],

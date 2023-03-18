@@ -26,6 +26,19 @@ class NewsRepository {
       throw Exception('Something went wrong');
     }
   }
-}
 
-// news_paginated_response
+  Future<NewsPaginatedResponse> searchNews(String query) async {
+    final queryParameters = {
+      'q': query,
+    };
+    final response = await _client.get<Map<String, dynamic>>(
+      NewsApiConstants.everything,
+      queryParameters: queryParameters,
+    );
+    if (response.data != null) {
+      return NewsPaginatedResponse.fromJson(response.data!);
+    } else {
+      throw Exception('Something went wrong');
+    }
+  }
+}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:news_app/blocs/article_list/article_list_bloc.dart';
+import 'package:news_app/core/enums/status.dart';
 import 'package:news_app/view/home/widgets/article_card.dart';
 
 class ArticleList extends StatefulWidget {

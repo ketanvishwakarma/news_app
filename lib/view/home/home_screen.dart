@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/blocs/article_list/article_list_bloc.dart';
 import 'package:news_app/blocs/bookmark_list/bookmark_list_bloc.dart';
+import 'package:news_app/blocs/search_news/search_news_bloc.dart';
 import 'package:news_app/core/di/service_locator.dart';
 import 'package:news_app/data/bookmark_repository.dart';
 import 'package:news_app/data/news_repository.dart';
@@ -24,6 +25,10 @@ class HomeScreen extends StatelessWidget {
         BlocProvider(
           create: (context) => BookmarkListBloc(getIt.get<BookmarkRepository>())
             ..add(const BookmarkGetListRequested()),
+        ),
+        BlocProvider(
+          create: (context) =>
+              SearchNewsBloc(newsRepository: getIt.get<NewsRepository>()),
         ),
       ],
       child: const DefaultTabController(
