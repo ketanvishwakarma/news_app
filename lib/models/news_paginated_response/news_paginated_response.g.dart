@@ -7,7 +7,7 @@ part of 'news_paginated_response.dart';
 // **************************************************************************
 
 _$_NewsPaginatedResponse _$$_NewsPaginatedResponseFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     _$_NewsPaginatedResponse(
       status: json['status'] as String?,
       totalResults: json['totalResults'] as int?,
@@ -17,7 +17,7 @@ _$_NewsPaginatedResponse _$$_NewsPaginatedResponseFromJson(
     );
 
 Map<String, dynamic> _$$_NewsPaginatedResponseToJson(
-        _$_NewsPaginatedResponse instance) =>
+        _$_NewsPaginatedResponse instance,) =>
     <String, dynamic>{
       'status': instance.status,
       'totalResults': instance.totalResults,
