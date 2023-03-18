@@ -9,18 +9,22 @@ class BookmarkRepository {
   final Box<ArticleDto> _box;
 
   Future<void> add(ArticleDto articleDto) async {
-    await _box.put(articleDto.publishedAt, articleDto);
+    await _box.put(_getKey(articleDto), articleDto);
   }
 
   Future<void> remove(ArticleDto articleDto) async {
-    await _box.delete(articleDto.publishedAt);
+    await _box.delete(_getKey(articleDto));
   }
 
   bool isStored(ArticleDto articleDto) {
-    return _box.containsKey(articleDto.publishedAt);
+    return _box.containsKey(_getKey(articleDto));
   }
 
-  Stream<List<ArticleDto>> watchArticleDto() {
-    return _box.watch().map((_) => _box.values.toList());
+  List<ArticleDto> getArticleDtoList() {
+    return _box.values.toList();
+  }
+
+  String _getKey(ArticleDto articleDto) {
+    return articleDto.title + articleDto.publishedAt;
   }
 }

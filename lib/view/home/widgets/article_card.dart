@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app/blocs/bookmark_list/bookmark_list_bloc.dart';
 import 'package:news_app/common_widgets/gradient_overlay_widget.dart';
 import 'package:news_app/core/styles/app_sizes.dart';
 import 'package:news_app/models/article/article.dart';
@@ -78,8 +81,27 @@ class ArticleCard extends StatelessWidget {
                         child: const Text('Visit Web'),
                       ),
                       TextButton(
-                        onPressed: () {},
-                        child: const Text('Bookmark'),
+                        onPressed: () {
+                          context
+                              .read<BookmarkListBloc>()
+                              .add(BookmarkToggleRequested(article));
+                        },
+                        child: BlocBuilder<BookmarkListBloc, BookmarkListState>(
+                          builder: (context, state) {
+                            if (state.articles.contains(article)) {
+                              return Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: const [
+                                  Text('Bookmarked'),
+                                  gapWMedium,
+                                  Icon(CupertinoIcons.check_mark),
+                                ],
+                              );
+                            } else {
+                              return const Text('Bookmark');
+                            }
+                          },
+                        ),
                       ),
                     ],
                   ),

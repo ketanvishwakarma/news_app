@@ -18,7 +18,7 @@ Future<void> configureDependencies() async {
   uiConfiguration();
   await configureFirebaseApp();
   await configureHive();
-  getIt.init();
+  await getIt.init();
 }
 
 void uiConfiguration() {

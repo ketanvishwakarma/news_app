@@ -6,6 +6,7 @@ import 'package:news_app/core/di/service_locator.dart';
 import 'package:news_app/data/bookmark_repository.dart';
 import 'package:news_app/data/news_repository.dart';
 import 'package:news_app/view/home/widgets/article_list.dart';
+import 'package:news_app/view/home/widgets/bookmark_list.dart';
 import 'package:news_app/view/home/widgets/custom_app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,8 +22,8 @@ class HomeScreen extends StatelessWidget {
                 ..add(const ArticleFetchRequested()),
         ),
         BlocProvider(
-          create: (context) =>
-              BookmarkListBloc(getIt.get<BookmarkRepository>()),
+          create: (context) => BookmarkListBloc(getIt.get<BookmarkRepository>())
+            ..add(const BookmarkGetListRequested()),
         ),
       ],
       child: const DefaultTabController(
@@ -32,6 +33,7 @@ class HomeScreen extends StatelessWidget {
           body: TabBarView(
             children: [
               ArticleList(),
+              BookmarkList(),
             ],
           ),
         ),
