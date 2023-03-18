@@ -149,6 +149,7 @@ class CustomSearchDelegate extends SearchDelegate<String> {
               itemBuilder: (context, index) {
                 return ArticleCard(
                   article: state.articles.elementAt(index),
+                  showBookmark: false,
                 );
               },
             );

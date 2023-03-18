@@ -11,7 +11,7 @@ import 'package:news_app/view/home/widgets/article_image_widget.dart';
 class ArticleCard extends StatelessWidget {
   const ArticleCard({
     required this.article,
-    this.showBookmark = false,
+    this.showBookmark = true,
     super.key,
   });
 
