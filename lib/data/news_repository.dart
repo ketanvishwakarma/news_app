@@ -4,7 +4,7 @@ import 'package:news_app/core/constants/news_api_constants.dart';
 import 'package:news_app/core/network/source/news_client.dart';
 import 'package:news_app/models/news_paginated_response/news_paginated_response.dart';
 
-@singleton
+@lazySingleton
 class NewsRepository {
   NewsRepository(this._client);
 
