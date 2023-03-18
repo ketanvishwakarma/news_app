@@ -98,23 +98,8 @@ class CustomSearchDelegate extends SearchDelegate<String> {
   final SearchNewsBloc searchBloc;
 
   @override
-  TextInputAction get textInputAction {
-    searchBloc.add(SearchNewsRequested(query.trim()));
-    return TextInputAction.search;
-  }
-
-  @override
   List<Widget>? buildActions(BuildContext context) {
-    return [
-      IconButton(
-        onPressed: () {
-          if (query.trim().isNotEmpty) {
-            searchBloc.add(SearchNewsRequested(query.trim()));
-          }
-        },
-        icon: const Icon(CupertinoIcons.search),
-      ),
-    ];
+    return null;
   }
 
   @override
@@ -131,6 +116,9 @@ class CustomSearchDelegate extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
+    if (query.trim().isNotEmpty) {
+      searchBloc.add(SearchNewsRequested(query.trim()));
+    }
     return BlocBuilder<SearchNewsBloc, SearchNewsState>(
       bloc: searchBloc,
       builder: (context, state) {
