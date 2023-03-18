@@ -23,17 +23,23 @@ class ArticleListBloc extends Bloc<ArticleListEvent, ArticleListState> {
     ArticleFetchRequested event,
     Emitter<ArticleListState> emit,
   ) async {
-    if (state.hasReachedMax) return;
+    if (state.hasReachedMax || state.status == Status.inProgress) return;
     try {
+      emit(
+        state.copyWith(
+          status: Status.inProgress,
+        ),
+      );
       final response = await _newsRepository.getTopHeadlines(_page);
       if (response.status == 'ok') {
         emit(
           state.copyWith(
             status: Status.success,
-            articles: response.articles,
+            articles: List.of(state.articles)..addAll(response.articles ?? []),
           ),
         );
-        if (state.articles.length == response.totalResults) {
+        if (state.articles.length == response.totalResults ||
+            (response.articles?.isEmpty ?? true)) {
           emit(
             state.copyWith(
               hasReachedMax: true,
