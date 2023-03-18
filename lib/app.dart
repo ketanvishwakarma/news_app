@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:news_app/core/styles/app_theme.dart';
-import 'package:news_app/view/home/home_screen.dart';
+import 'package:news_app/view/auth/auth_wrapper.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'News',
       theme: AppTheme.darkTheme,
-      home: const HomeScreen(),
+      home: const AuthWrapper(),
     );
   }
 }
