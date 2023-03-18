@@ -19,7 +19,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSizes.largeSpace),
+          padding: const EdgeInsets.symmetric(horizontal: AppSizes.large),
           child: Row(
             children: [
               const UserGreetingWidget(),

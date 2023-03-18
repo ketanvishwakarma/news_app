@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:news_app/core/constants/key_constants.dart';
 import 'package:news_app/core/constants/news_api_constants.dart';
 import 'package:news_app/core/network/source/news_client.dart';
 import 'package:news_app/models/news_paginated_response/news_paginated_response.dart';
@@ -10,6 +11,7 @@ class NewsRepository {
   final NewsApiClient _client;
 
   Future<NewsPaginatedResponse> getTopHeadlines(int page) async {
+    return NewsPaginatedResponse.fromJson(sampleResponse);
     final queryParameters = {
       'country': 'in',
       'page': page,

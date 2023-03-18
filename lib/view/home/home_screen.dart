@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/view/home/widgets/build_articles.dart';
 import 'package:news_app/view/home/widgets/custom_app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -12,9 +13,7 @@ class HomeScreen extends StatelessWidget {
         appBar: CustomAppBar(),
         body: TabBarView(
           children: [
-            Center(
-              child: Text('Home'),
-            ),
+            BuildArticles(),
             Center(
               child: Text('Bookmarked'),
             ),

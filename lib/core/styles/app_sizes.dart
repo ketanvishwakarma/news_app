@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 class AppSizes {
   const AppSizes._();
 
-  static const largeSpace = 16.0;
-  static const mediumSpace = 8.0;
-  static const smallSpace = 4.0;
+  static const large = 16.0;
+  static const medium = 8.0;
+  static const small = 4.0;
 }
 
-const gapHLarge = SizedBox(height: AppSizes.largeSpace);
-const gapHMedium = SizedBox(height: AppSizes.mediumSpace);
-const gapHSmall = SizedBox(height: AppSizes.smallSpace);
+const gapHLarge = SizedBox(height: AppSizes.large);
+const gapHMedium = SizedBox(height: AppSizes.medium);
+const gapHSmall = SizedBox(height: AppSizes.small);
 
-const gapWLarge = SizedBox(width: AppSizes.largeSpace);
-const gapWMedium = SizedBox(width: AppSizes.mediumSpace);
-const gapWSmall = SizedBox(width: AppSizes.smallSpace);
+const gapWLarge = SizedBox(width: AppSizes.large);
+const gapWMedium = SizedBox(width: AppSizes.medium);
+const gapWSmall = SizedBox(width: AppSizes.small);
