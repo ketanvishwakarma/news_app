@@ -198,7 +198,7 @@ class __$$_ArticleCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Article implements _Article {
+class _$_Article extends _Article {
   _$_Article(
       {required this.source,
       required this.title,
@@ -207,7 +207,8 @@ class _$_Article implements _Article {
       this.description,
       this.author,
       this.urlToImage,
-      this.content});
+      this.content})
+      : super._();
 
   factory _$_Article.fromJson(Map<String, dynamic> json) =>
       _$$_ArticleFromJson(json);
@@ -271,7 +272,7 @@ class _$_Article implements _Article {
   }
 }
 
-abstract class _Article implements Article {
+abstract class _Article extends Article {
   factory _Article(
       {required final Source source,
       required final String title,
@@ -281,6 +282,7 @@ abstract class _Article implements Article {
       final String? author,
       final String? urlToImage,
       final String? content}) = _$_Article;
+  _Article._() : super._();
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$_Article.fromJson;
 
