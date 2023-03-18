@@ -9,9 +9,9 @@ class Article with _$Article {
   factory Article({
     required Source source,
     required String title,
-    required String description,
     required String url,
     required String publishedAt,
+    String? description,
     String? author,
     String? urlToImage,
     String? content,

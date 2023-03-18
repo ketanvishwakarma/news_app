@@ -22,9 +22,9 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
 mixin _$Article {
   Source get source => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   String get publishedAt => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   String? get author => throw _privateConstructorUsedError;
   String? get urlToImage => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
@@ -42,9 +42,9 @@ abstract class $ArticleCopyWith<$Res> {
   $Res call(
       {Source source,
       String title,
-      String description,
       String url,
       String publishedAt,
+      String? description,
       String? author,
       String? urlToImage,
       String? content});
@@ -67,9 +67,9 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
   $Res call({
     Object? source = null,
     Object? title = null,
-    Object? description = null,
     Object? url = null,
     Object? publishedAt = null,
+    Object? description = freezed,
     Object? author = freezed,
     Object? urlToImage = freezed,
     Object? content = freezed,
@@ -83,10 +83,6 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -95,6 +91,10 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
               as String,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
       author: freezed == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -129,9 +129,9 @@ abstract class _$$_ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   $Res call(
       {Source source,
       String title,
-      String description,
       String url,
       String publishedAt,
+      String? description,
       String? author,
       String? urlToImage,
       String? content});
@@ -152,9 +152,9 @@ class __$$_ArticleCopyWithImpl<$Res>
   $Res call({
     Object? source = null,
     Object? title = null,
-    Object? description = null,
     Object? url = null,
     Object? publishedAt = null,
+    Object? description = freezed,
     Object? author = freezed,
     Object? urlToImage = freezed,
     Object? content = freezed,
@@ -168,10 +168,6 @@ class __$$_ArticleCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -180,6 +176,10 @@ class __$$_ArticleCopyWithImpl<$Res>
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
               as String,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
       author: freezed == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -202,9 +202,9 @@ class _$_Article implements _Article {
   _$_Article(
       {required this.source,
       required this.title,
-      required this.description,
       required this.url,
       required this.publishedAt,
+      this.description,
       this.author,
       this.urlToImage,
       this.content});
@@ -217,11 +217,11 @@ class _$_Article implements _Article {
   @override
   final String title;
   @override
-  final String description;
-  @override
   final String url;
   @override
   final String publishedAt;
+  @override
+  final String? description;
   @override
   final String? author;
   @override
@@ -231,7 +231,7 @@ class _$_Article implements _Article {
 
   @override
   String toString() {
-    return 'Article(source: $source, title: $title, description: $description, url: $url, publishedAt: $publishedAt, author: $author, urlToImage: $urlToImage, content: $content)';
+    return 'Article(source: $source, title: $title, url: $url, publishedAt: $publishedAt, description: $description, author: $author, urlToImage: $urlToImage, content: $content)';
   }
 
   @override
@@ -241,11 +241,11 @@ class _$_Article implements _Article {
             other is _$_Article &&
             (identical(other.source, source) || other.source == source) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.publishedAt, publishedAt) ||
                 other.publishedAt == publishedAt) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.author, author) || other.author == author) &&
             (identical(other.urlToImage, urlToImage) ||
                 other.urlToImage == urlToImage) &&
@@ -254,8 +254,8 @@ class _$_Article implements _Article {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, source, title, description, url,
-      publishedAt, author, urlToImage, content);
+  int get hashCode => Object.hash(runtimeType, source, title, url, publishedAt,
+      description, author, urlToImage, content);
 
   @JsonKey(ignore: true)
   @override
@@ -275,9 +275,9 @@ abstract class _Article implements Article {
   factory _Article(
       {required final Source source,
       required final String title,
-      required final String description,
       required final String url,
       required final String publishedAt,
+      final String? description,
       final String? author,
       final String? urlToImage,
       final String? content}) = _$_Article;
@@ -289,11 +289,11 @@ abstract class _Article implements Article {
   @override
   String get title;
   @override
-  String get description;
-  @override
   String get url;
   @override
   String get publishedAt;
+  @override
+  String? get description;
   @override
   String? get author;
   @override
