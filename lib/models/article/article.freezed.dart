@@ -12,7 +12,7 @@ part of 'article.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Article _$ArticleFromJson(Map<String, dynamic> json) {
   return _Article.fromJson(json);
@@ -120,10 +120,10 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
 }
 
 /// @nodoc
-abstract class _$$_ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
-  factory _$$_ArticleCopyWith(
-          _$_Article value, $Res Function(_$_Article) then) =
-      __$$_ArticleCopyWithImpl<$Res>;
+abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
+  factory _$$ArticleImplCopyWith(
+          _$ArticleImpl value, $Res Function(_$ArticleImpl) then) =
+      __$$ArticleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -141,10 +141,11 @@ abstract class _$$_ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ArticleCopyWithImpl<$Res>
-    extends _$ArticleCopyWithImpl<$Res, _$_Article>
-    implements _$$_ArticleCopyWith<$Res> {
-  __$$_ArticleCopyWithImpl(_$_Article _value, $Res Function(_$_Article) _then)
+class __$$ArticleImplCopyWithImpl<$Res>
+    extends _$ArticleCopyWithImpl<$Res, _$ArticleImpl>
+    implements _$$ArticleImplCopyWith<$Res> {
+  __$$ArticleImplCopyWithImpl(
+      _$ArticleImpl _value, $Res Function(_$ArticleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -159,7 +160,7 @@ class __$$_ArticleCopyWithImpl<$Res>
     Object? urlToImage = freezed,
     Object? content = freezed,
   }) {
-    return _then(_$_Article(
+    return _then(_$ArticleImpl(
       source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
@@ -198,8 +199,8 @@ class __$$_ArticleCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Article extends _Article {
-  _$_Article(
+class _$ArticleImpl extends _Article {
+  _$ArticleImpl(
       {required this.source,
       required this.title,
       required this.url,
@@ -210,8 +211,8 @@ class _$_Article extends _Article {
       this.content})
       : super._();
 
-  factory _$_Article.fromJson(Map<String, dynamic> json) =>
-      _$$_ArticleFromJson(json);
+  factory _$ArticleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ArticleImplFromJson(json);
 
   @override
   final Source source;
@@ -236,10 +237,10 @@ class _$_Article extends _Article {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Article &&
+            other is _$ArticleImpl &&
             (identical(other.source, source) || other.source == source) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.url, url) || other.url == url) &&
@@ -261,12 +262,12 @@ class _$_Article extends _Article {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ArticleCopyWith<_$_Article> get copyWith =>
-      __$$_ArticleCopyWithImpl<_$_Article>(this, _$identity);
+  _$$ArticleImplCopyWith<_$ArticleImpl> get copyWith =>
+      __$$ArticleImplCopyWithImpl<_$ArticleImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ArticleToJson(
+    return _$$ArticleImplToJson(
       this,
     );
   }
@@ -281,10 +282,10 @@ abstract class _Article extends Article {
       final String? description,
       final String? author,
       final String? urlToImage,
-      final String? content}) = _$_Article;
+      final String? content}) = _$ArticleImpl;
   _Article._() : super._();
 
-  factory _Article.fromJson(Map<String, dynamic> json) = _$_Article.fromJson;
+  factory _Article.fromJson(Map<String, dynamic> json) = _$ArticleImpl.fromJson;
 
   @override
   Source get source;
@@ -304,6 +305,6 @@ abstract class _Article extends Article {
   String? get content;
   @override
   @JsonKey(ignore: true)
-  _$$_ArticleCopyWith<_$_Article> get copyWith =>
+  _$$ArticleImplCopyWith<_$ArticleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

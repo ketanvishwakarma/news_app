@@ -121,3 +121,5 @@ app.*.symbols
 # Firebase & Keys 
 **/google-services.json
 **/key_constants.dart
+
+.env

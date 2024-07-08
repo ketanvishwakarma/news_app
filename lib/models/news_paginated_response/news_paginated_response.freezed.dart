@@ -12,7 +12,7 @@ part of 'news_paginated_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 NewsPaginatedResponse _$NewsPaginatedResponseFromJson(
     Map<String, dynamic> json) {
@@ -76,22 +76,24 @@ class _$NewsPaginatedResponseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_NewsPaginatedResponseCopyWith<$Res>
+abstract class _$$NewsPaginatedResponseImplCopyWith<$Res>
     implements $NewsPaginatedResponseCopyWith<$Res> {
-  factory _$$_NewsPaginatedResponseCopyWith(_$_NewsPaginatedResponse value,
-          $Res Function(_$_NewsPaginatedResponse) then) =
-      __$$_NewsPaginatedResponseCopyWithImpl<$Res>;
+  factory _$$NewsPaginatedResponseImplCopyWith(
+          _$NewsPaginatedResponseImpl value,
+          $Res Function(_$NewsPaginatedResponseImpl) then) =
+      __$$NewsPaginatedResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? status, int? totalResults, List<Article>? articles});
 }
 
 /// @nodoc
-class __$$_NewsPaginatedResponseCopyWithImpl<$Res>
-    extends _$NewsPaginatedResponseCopyWithImpl<$Res, _$_NewsPaginatedResponse>
-    implements _$$_NewsPaginatedResponseCopyWith<$Res> {
-  __$$_NewsPaginatedResponseCopyWithImpl(_$_NewsPaginatedResponse _value,
-      $Res Function(_$_NewsPaginatedResponse) _then)
+class __$$NewsPaginatedResponseImplCopyWithImpl<$Res>
+    extends _$NewsPaginatedResponseCopyWithImpl<$Res,
+        _$NewsPaginatedResponseImpl>
+    implements _$$NewsPaginatedResponseImplCopyWith<$Res> {
+  __$$NewsPaginatedResponseImplCopyWithImpl(_$NewsPaginatedResponseImpl _value,
+      $Res Function(_$NewsPaginatedResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +103,7 @@ class __$$_NewsPaginatedResponseCopyWithImpl<$Res>
     Object? totalResults = freezed,
     Object? articles = freezed,
   }) {
-    return _then(_$_NewsPaginatedResponse(
+    return _then(_$NewsPaginatedResponseImpl(
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -120,13 +122,13 @@ class __$$_NewsPaginatedResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NewsPaginatedResponse implements _NewsPaginatedResponse {
-  _$_NewsPaginatedResponse(
+class _$NewsPaginatedResponseImpl implements _NewsPaginatedResponse {
+  _$NewsPaginatedResponseImpl(
       {this.status, this.totalResults, final List<Article>? articles})
       : _articles = articles;
 
-  factory _$_NewsPaginatedResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_NewsPaginatedResponseFromJson(json);
+  factory _$NewsPaginatedResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NewsPaginatedResponseImplFromJson(json);
 
   @override
   final String? status;
@@ -148,10 +150,10 @@ class _$_NewsPaginatedResponse implements _NewsPaginatedResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NewsPaginatedResponse &&
+            other is _$NewsPaginatedResponseImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.totalResults, totalResults) ||
                 other.totalResults == totalResults) &&
@@ -166,13 +168,13 @@ class _$_NewsPaginatedResponse implements _NewsPaginatedResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NewsPaginatedResponseCopyWith<_$_NewsPaginatedResponse> get copyWith =>
-      __$$_NewsPaginatedResponseCopyWithImpl<_$_NewsPaginatedResponse>(
-          this, _$identity);
+  _$$NewsPaginatedResponseImplCopyWith<_$NewsPaginatedResponseImpl>
+      get copyWith => __$$NewsPaginatedResponseImplCopyWithImpl<
+          _$NewsPaginatedResponseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NewsPaginatedResponseToJson(
+    return _$$NewsPaginatedResponseImplToJson(
       this,
     );
   }
@@ -182,10 +184,10 @@ abstract class _NewsPaginatedResponse implements NewsPaginatedResponse {
   factory _NewsPaginatedResponse(
       {final String? status,
       final int? totalResults,
-      final List<Article>? articles}) = _$_NewsPaginatedResponse;
+      final List<Article>? articles}) = _$NewsPaginatedResponseImpl;
 
   factory _NewsPaginatedResponse.fromJson(Map<String, dynamic> json) =
-      _$_NewsPaginatedResponse.fromJson;
+      _$NewsPaginatedResponseImpl.fromJson;
 
   @override
   String? get status;
@@ -195,6 +197,6 @@ abstract class _NewsPaginatedResponse implements NewsPaginatedResponse {
   List<Article>? get articles;
   @override
   @JsonKey(ignore: true)
-  _$$_NewsPaginatedResponseCopyWith<_$_NewsPaginatedResponse> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$NewsPaginatedResponseImplCopyWith<_$NewsPaginatedResponseImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

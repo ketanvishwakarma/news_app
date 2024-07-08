@@ -12,7 +12,7 @@ part of 'source.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Source _$SourceFromJson(Map<String, dynamic> json) {
   return _Source.fromJson(json);
@@ -66,19 +66,21 @@ class _$SourceCopyWithImpl<$Res, $Val extends Source>
 }
 
 /// @nodoc
-abstract class _$$_SourceCopyWith<$Res> implements $SourceCopyWith<$Res> {
-  factory _$$_SourceCopyWith(_$_Source value, $Res Function(_$_Source) then) =
-      __$$_SourceCopyWithImpl<$Res>;
+abstract class _$$SourceImplCopyWith<$Res> implements $SourceCopyWith<$Res> {
+  factory _$$SourceImplCopyWith(
+          _$SourceImpl value, $Res Function(_$SourceImpl) then) =
+      __$$SourceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String? id});
 }
 
 /// @nodoc
-class __$$_SourceCopyWithImpl<$Res>
-    extends _$SourceCopyWithImpl<$Res, _$_Source>
-    implements _$$_SourceCopyWith<$Res> {
-  __$$_SourceCopyWithImpl(_$_Source _value, $Res Function(_$_Source) _then)
+class __$$SourceImplCopyWithImpl<$Res>
+    extends _$SourceCopyWithImpl<$Res, _$SourceImpl>
+    implements _$$SourceImplCopyWith<$Res> {
+  __$$SourceImplCopyWithImpl(
+      _$SourceImpl _value, $Res Function(_$SourceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +89,7 @@ class __$$_SourceCopyWithImpl<$Res>
     Object? name = null,
     Object? id = freezed,
   }) {
-    return _then(_$_Source(
+    return _then(_$SourceImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -102,11 +104,11 @@ class __$$_SourceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Source implements _Source {
-  _$_Source({required this.name, this.id});
+class _$SourceImpl implements _Source {
+  _$SourceImpl({required this.name, this.id});
 
-  factory _$_Source.fromJson(Map<String, dynamic> json) =>
-      _$$_SourceFromJson(json);
+  factory _$SourceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SourceImplFromJson(json);
 
   @override
   final String name;
@@ -119,10 +121,10 @@ class _$_Source implements _Source {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Source &&
+            other is _$SourceImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.id, id) || other.id == id));
   }
@@ -134,21 +136,22 @@ class _$_Source implements _Source {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SourceCopyWith<_$_Source> get copyWith =>
-      __$$_SourceCopyWithImpl<_$_Source>(this, _$identity);
+  _$$SourceImplCopyWith<_$SourceImpl> get copyWith =>
+      __$$SourceImplCopyWithImpl<_$SourceImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SourceToJson(
+    return _$$SourceImplToJson(
       this,
     );
   }
 }
 
 abstract class _Source implements Source {
-  factory _Source({required final String name, final String? id}) = _$_Source;
+  factory _Source({required final String name, final String? id}) =
+      _$SourceImpl;
 
-  factory _Source.fromJson(Map<String, dynamic> json) = _$_Source.fromJson;
+  factory _Source.fromJson(Map<String, dynamic> json) = _$SourceImpl.fromJson;
 
   @override
   String get name;
@@ -156,6 +159,6 @@ abstract class _Source implements Source {
   String? get id;
   @override
   @JsonKey(ignore: true)
-  _$$_SourceCopyWith<_$_Source> get copyWith =>
+  _$$SourceImplCopyWith<_$SourceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

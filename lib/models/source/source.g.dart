@@ -6,12 +6,13 @@ part of 'source.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Source _$$_SourceFromJson(Map<String, dynamic> json) => _$_Source(
+_$SourceImpl _$$SourceImplFromJson(Map<String, dynamic> json) => _$SourceImpl(
       name: json['name'] as String,
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$$_SourceToJson(_$_Source instance) => <String, dynamic>{
+Map<String, dynamic> _$$SourceImplToJson(_$SourceImpl instance) =>
+    <String, dynamic>{
       'name': instance.name,
       'id': instance.id,
     };

@@ -7,7 +7,7 @@ import 'package:news_app/core/enums/status.dart';
 import 'package:news_app/core/styles/app_sizes.dart';
 import 'package:news_app/view/home/widgets/article_card.dart';
 
-class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
   });
@@ -55,7 +55,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
               text: 'Bookmarked',
             ),
           ],
-        )
+        ),
       ],
     );
   }
